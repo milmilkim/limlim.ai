@@ -1,5 +1,6 @@
 {
   "buildCommand": "pnpm build",
+  "installCommand": "pnpm install",
   "outputDirectory": "apps/web-client/dist",
   "functions": {
     "apps/backend-api/.output/server/index.mjs": {
