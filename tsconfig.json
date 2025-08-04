@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.base.json",
+  "files": [],
+  "include": ["packages/**/*"],
+  "references": [
+    { "path": "apps/web-client" },
+    { "path": "apps/backend-api" },
+    { "path": "packages/core" },
+    { "path": "packages/shared" }
+  ]
+}

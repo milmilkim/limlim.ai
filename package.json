@@ -1,0 +1,15 @@
+{
+  "name": "limlim-ai-workspace",
+  "private": true,
+  "scripts": {
+    "dev:web": "pnpm --filter web-client dev",
+    "dev:api": "pnpm --filter backend-api dev",
+    "dev": "pnpm --parallel --filter \"./apps/**\" dev",
+    "build:web": "pnpm --filter web-client build",
+    "build:api": "pnpm --filter backend-api build",
+    "build": "pnpm --parallel --filter \"./apps/**\" build"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+} 

@@ -1,0 +1,15 @@
+{
+  "name": "backend-api",
+  "type": "module",
+  "scripts": {
+    "build": "nitro build",
+    "dev": "nitro dev",
+    "prepare": "nitro prepare"
+  },
+  "devDependencies": {
+    "nitropack": "latest"
+  },
+  "dependencies": {
+    "@limlim-ai/shared": "workspace:*"
+  }
+}
