@@ -1,10 +1,10 @@
-import axios from 'axios';
+import axios, { type AxiosInstance } from 'axios';
 
-const isServer = typeof window === 'undefined';
-
-export const apiClient = axios.create({
-  baseURL: isServer ? 'http://localhost:3000/api' : '/api',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-}); 
+export const createApiClient = (baseURL: string): AxiosInstance => {
+  return axios.create({
+    baseURL,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+}; 

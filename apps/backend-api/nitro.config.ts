@@ -11,11 +11,14 @@ export default defineNitroConfig({
   experimental: {
     wasm: true,
   },
-  publicAssets: [
-    {
-      dir: resolve(__dirname, "../web-client/dist"),
-      baseURL: "/",
-      maxAge: 60 * 60 * 24 * 365,
+  routeRules: {
+    "/api/**": {
+      cors: true,
+      headers: {
+        "Access-Control-Allow-Origin": process.env.WEB_CLIENT_URL || "*",
+        "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type,Authorization",
+      },
     },
-  ],
+  },
 });
