@@ -1,10 +1,4 @@
 {
   "buildCommand": "pnpm build",
-  "installCommand": "pnpm install",
-  "outputDirectory": "apps/backend-api/.vercel/output",
-  "functions": {
-    "apps/backend-api/.vercel/output/functions/__nitro.func/index.mjs": {
-      "maxDuration": 30
-    }
-  }
+  "installCommand": "pnpm install"
 }
