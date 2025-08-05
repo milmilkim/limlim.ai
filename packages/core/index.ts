@@ -1,4 +1,6 @@
-import axios, { type AxiosInstance } from 'axios';
+import axios, { type AxiosInstance, type AxiosResponse } from 'axios';
+
+export type { AxiosInstance, AxiosResponse };
 
 export const createApiClient = (baseURL: string): AxiosInstance => {
   return axios.create({

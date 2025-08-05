@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 
 import "./App.css";
-import { apiClient } from "@limlim-ai/core";
+import apiClient from "./lib/apiClient";
 
 function App() {
   const [message, setMessage] = useState("loading...");
 
   useEffect(() => {
     apiClient
-      .get("/hello")
+      .get("/api/hello")
       .then((response) => {
         setMessage(response.data.message);
       })
