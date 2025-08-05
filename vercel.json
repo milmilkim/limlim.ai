@@ -1,20 +1,5 @@
 {
   "buildCommand": "pnpm build",
   "installCommand": "pnpm install",
-  "outputDirectory": "apps/web-client/dist",
-  "functions": {
-    "apps/backend-api/.output/server/index.mjs": {
-      "maxDuration": 30
-    }
-  },
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/apps/backend-api/.output/server/index.mjs"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
-} 
+  "outputDirectory": "apps/backend-api/.vercel/output"
+}
