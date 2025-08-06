@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-import "./App.css";
 import apiClient from "./lib/apiClient";
 
 function App() {

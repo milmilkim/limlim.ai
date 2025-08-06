@@ -4,12 +4,14 @@
   "scripts": {
     "build": "nitro build",
     "dev": "nitro dev",
-    "prepare": "nitro prepare"
+    "prepare": "nitro prepare",
+    "lint": "eslint ."
   },
   "devDependencies": {
     "nitropack": "latest"
   },
   "dependencies": {
+    "@limlim-ai/eslint-config-custom": "workspace:*",
     "@limlim-ai/shared": "workspace:*"
   }
 }
