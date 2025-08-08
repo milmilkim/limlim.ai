@@ -1,23 +1,11 @@
-import { useState, useEffect } from "react";
-
-import apiClient from "./lib/apiClient";
+import Sidebar from "./layouts/sidebar";
 
 function App() {
-  const [message, setMessage] = useState("loading...");
-
-  useEffect(() => {
-    apiClient
-      .get("/api/hello")
-      .then((response) => {
-        setMessage(response.data.message);
-      })
-      .catch((error: Error) => {
-        console.error("Error fetching data:", error);
-        setMessage("Failed to load message from server.");
-      });
-  }, []);
-
-  return <>{message}</>;
+  return (
+    <div className="w-full h-100dvh">
+      <Sidebar />
+    </div>
+  );
 }
 
 export default App;
