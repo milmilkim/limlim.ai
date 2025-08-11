@@ -6,6 +6,8 @@ import ChatPage from "./pages/ChatPage";
 import LorebookPage from "./pages/LorebookPage";
 import PromptsPage from "./pages/PromptsPage";
 import SettingsPage from "./pages/SettingsPage";
+import BotsPage from "./pages/BotsPage";
+import PersonaPage from "./pages/PersonaPage";
 
 const AppContent = () => {
   const { currentTab } = useAppState();
@@ -14,10 +16,14 @@ const AppContent = () => {
     switch (currentTab) {
       case 'chat':
         return <ChatPage />;
+      case 'bots':
+        return <BotsPage />;
       case 'lorebook':
         return <LorebookPage />;
       case 'prompts':
         return <PromptsPage />;
+      case 'persona':
+        return <PersonaPage />;
       case 'settings':
         return <SettingsPage />;
       default:

@@ -1,4 +1,12 @@
-import { Blocks, BookText, Bot, Drama, Settings } from "lucide-react";
+import {
+  Blocks,
+  BookText,
+  Bot,
+  Drama,
+  Settings,
+  MessagesSquare,
+  CupSoda,
+} from "lucide-react";
 import { clsx } from "clsx";
 import { useAppState } from "../contexts/AppStateContext";
 import { useHeader } from "../contexts/HeaderContext";
@@ -64,7 +72,8 @@ const NavBtn = ({
 };
 
 const tabConfigs = [
-  { id: "chat" as TabType, icon: <Bot size={24} />, label: "채팅" },
+  { id: "chat" as TabType, icon: <MessagesSquare size={24} />, label: "채팅" },
+  { id: "bots" as TabType, icon: <Bot size={24} />, label: "봇" },
   { id: "lorebook" as TabType, icon: <BookText size={24} />, label: "로어북" },
   { id: "prompts" as TabType, icon: <Blocks size={24} />, label: "프롬프트" },
   { id: "persona" as TabType, icon: <Drama />, label: "페르소나" },
@@ -77,6 +86,7 @@ const useHandleTabChange = () => {
     setCurrentTab(tab);
     const headerConfigs = {
       chat: { title: "채팅", rightContent: null },
+      bots: { title: "봇", rightContent: null },
       lorebook: { title: "로어북", rightContent: null },
       prompts: { title: "프롬프트", rightContent: null },
       settings: { title: "설정", rightContent: null },
@@ -104,6 +114,26 @@ const Sidebar = () => {
         transition={{ type: "spring", stiffness: 260, damping: 30 }}
       >
         <nav className="h-full bg-sidebar border-r p-2 flex flex-col gap-2 w-full">
+          {/* Brand */}
+          <div
+            className={clsx(
+              "h-12 w-full px-2 flex items-center rounded-lg select-none text-sidebar-foreground",
+              isSidebarExpanded ? "justify-start gap-3" : "justify-center gap-0"
+            )}
+          >
+            <div className="shrink-0 h-6 w-6 flex items-center justify-center">
+              <CupSoda size={24} />
+            </div>
+            <span
+              className={clsx(
+                "text-sm font-medium overflow-hidden whitespace-nowrap transition-all",
+                isSidebarExpanded ? "opacity-100 max-w-[160px]" : "opacity-0 max-w-0"
+              )}
+            >
+              limlim-ai
+            </span>
+          </div>
+
           {tabConfigs.map((tab) => (
             <NavBtn
               key={tab.id}
@@ -153,6 +183,14 @@ const Sidebar = () => {
               transition={{ type: "spring", stiffness: 260, damping: 30 }}
             >
               <nav className="h-full w-full p-3 flex flex-col gap-2">
+                {/* Brand (mobile) */}
+                <div className="h-12 w-full px-2 flex items-center rounded-lg gap-3 select-none">
+                  <div className="shrink-0 h-6 w-6 flex items-center justify-center">
+                    <CupSoda size={18} />
+                  </div>
+                  <span className="text-sm font-medium">limlim-ai</span>
+                </div>
+
                 {tabConfigs.map((tab) => (
                   <NavBtn
                     key={tab.id}

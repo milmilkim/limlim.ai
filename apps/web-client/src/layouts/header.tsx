@@ -1,32 +1,24 @@
-import { Menu } from "lucide-react";
+import { Menu, PanelLeft } from "lucide-react";
 import { useHeader } from "../contexts/HeaderContext";
 import { useAppState } from "../contexts/AppStateContext";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 const Header = () => {
     const { headerConfig } = useHeader();
     const { toggleSidebar, toggleMobileDrawer } = useAppState();
+    const isMobile = useIsMobile();
     
     return (
         <header className="h-12 w-full bg-background border-b flex items-center px-4">
             <div className="flex items-center gap-3 flex-1">
                 {headerConfig.showDrawerButton && (
-                    <>
-                        {/* 데스크탑 메뉴 버튼 */}
-                        <button 
-                            className="hidden md:block p-1 hover:bg-muted rounded-md"
-                            onClick={toggleSidebar}
-                        >
-                            <Menu size={20} />
-                        </button>
-                        
-                        {/* 모바일 메뉴 버튼 */}
-                        <button 
-                            className="md:hidden p-1 hover:bg-muted rounded-md"
-                            onClick={toggleMobileDrawer}
-                        >
-                            <Menu size={20} />
-                        </button>
-                    </>
+                    <button 
+                        className="p-1 hover:bg-muted rounded-md"
+                        onClick={isMobile ? toggleMobileDrawer : toggleSidebar}
+                        aria-label="toggle navigation"
+                    >
+                        {isMobile ? <Menu size={20} /> : <PanelLeft size={20} />}
+                    </button>
                 )}
                 {headerConfig.leftContent}
                 {headerConfig.title && (

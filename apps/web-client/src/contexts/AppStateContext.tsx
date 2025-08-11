@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 import type { ReactNode } from 'react';
 
-export type TabType = 'chat' | 'lorebook' | 'prompts' | 'settings';
+export type TabType = 'chat' | 'bots' | 'lorebook' | 'prompts' | 'persona' | 'settings';
 
 interface AppStateContextType {
   currentTab: TabType;
